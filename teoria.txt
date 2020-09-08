@@ -1,0 +1,60 @@
+
+Al crear un contenido en pages, el automaticamente compila el contenido y el nombre del archivo
+puede ser accedido desde el navegador ya contiene un router
+
+
+hacer peticion al servidor de graphql
+
+QUERY
+
+import { useQuery, gql } from '@apollo/client';
+
+const QUERY = gql`
+  query {
+    obtenerProductos {
+        id
+        nombre
+        precio
+        existencia
+    }
+}
+`
+// obtener productos de Graphql
+const { data, loading, error } = useQuery(QUERY);
+
+console.log(data)
+console.log(loading)
+console.log(error)
+
+MUTATION
+
+import { useMutation, gql } from '@apollo/client';
+
+const NUEVA_CUENTA = gql`
+  mutation nuevoUsuario($input: UsuarioInput) { // nuevoUsuario -> nombre de funcion
+    nuevoUsuario(input: $input){ // nuevoUsuario -> nombre del mutation
+      id  // respuesta del mutation
+      nombre
+      apellido
+      email
+    }
+  }
+`
+
+// Mutation para crear nuevos usuario
+// nuevoUsuario -> nombre del mutation
+const [ nuevoUsuario ] = useMutation(NUEVA_CUENTA)
+
+// Ejecutar mutation
+const { data } =  await nuevoUsuario ({
+  variables: {
+    input: {
+      nombre,
+      apellido,
+      email,
+      password,
+    }
+  }
+})
+
+data -> respuesta del mutation 
