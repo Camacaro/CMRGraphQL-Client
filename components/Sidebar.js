@@ -5,8 +5,6 @@ import { useRouter } from 'next/router'
 
 const Sidebar = () => {
 
-  console.log('Mostrado')
-
   const router = useRouter();
 
   return (
