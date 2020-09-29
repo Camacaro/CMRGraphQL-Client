@@ -31,7 +31,8 @@ export default function Index() {
   }
 
   if(!data) {
-    return push('/login')
+    push('/login')
+    return '';
   }
 
   return (
