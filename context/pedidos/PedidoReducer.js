@@ -1,7 +1,7 @@
 
 import { SELECCIONAR_CLIENTE, SELECCIONAR_PRODUCTO, CANTIDAD_PRODUCTOS, ACTUALIZAR_TOTAL } from '../../types';
 
-export default ( state, action ) => {
+const pedidoReducer = ( state, action ) => {
   switch (action.type) {
 
     case SELECCIONAR_CLIENTE:
@@ -37,4 +37,4 @@ export default ( state, action ) => {
   }
 }
 
-// export default PedidoReducer
+export default pedidoReducer
